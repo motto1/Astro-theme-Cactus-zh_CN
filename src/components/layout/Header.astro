@@ -13,20 +13,17 @@ import { menuLinks } from "@/site.config";
 		75% { transform: scale(1.02) rotate(1.5deg); }
 	}
 
-    @keyframes halo-pulse {
-        0% {
-            box-shadow: 0 0 0 0px rgba(96, 165, 250, 0);
+    @keyframes subtle-glow {
+        0%, 100% {
+            box-shadow: 0 0 3px rgba(96, 165, 250, 0.08);
         }
         50% {
-            box-shadow: 0 0 0 10px rgba(96, 165, 250, 0.15);
-        }
-        100% {
-            box-shadow: 0 0 0 20px rgba(96, 165, 250, 0);
+            box-shadow: 0 0 6px rgba(96, 165, 250, 0.16);
         }
     }
 
 	.group:hover .breathing-image {
-		animation: breathe 1.5s ease-in-out infinite, halo-pulse 2.5s ease-in-out infinite;
+		animation: breathe 1.5s ease-in-out infinite, subtle-glow 7s ease-in-out infinite;
 	}
 
 	@keyframes title-glow {
