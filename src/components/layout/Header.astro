@@ -14,12 +14,19 @@ import { menuLinks } from "@/site.config";
 	}
 
     @keyframes halo-pulse {
-        0% { box-shadow: 0 0 0 0px rgba(96, 165, 250, 0.7), 0 0 0 0px rgba(96, 165, 250, 0.7); }
-        100% { box-shadow: 0 0 0 15px rgba(96, 165, 250, 0), 0 0 0 30px rgba(96, 165, 250, 0); }
+        0% {
+            box-shadow: 0 0 0 0px rgba(96, 165, 250, 0);
+        }
+        50% {
+            box-shadow: 0 0 0 10px rgba(96, 165, 250, 0.15);
+        }
+        100% {
+            box-shadow: 0 0 0 20px rgba(96, 165, 250, 0);
+        }
     }
 
 	.group:hover .breathing-image {
-		animation: breathe 1.5s ease-in-out infinite, halo-pulse 1.5s ease-in-out infinite;
+		animation: breathe 1.5s ease-in-out infinite, halo-pulse 2.5s ease-in-out infinite;
 	}
 
 	@keyframes title-glow {
