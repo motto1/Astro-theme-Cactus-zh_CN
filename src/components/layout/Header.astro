@@ -5,10 +5,10 @@ import { menuLinks } from "@/site.config";
 ---
 
 <header class="relative mb-16 flex items-center sm:ps-[4.5rem]" id="main-header">
-	<div class="flex flex-row items-center sm:flex-col sm:items-start">
+	<div class="flex flex-row items-center">
 		<a
 			aria-current={Astro.url.pathname === "/" ? "page" : false}
-			class="inline-flex flex-row items-center group hover-trigger sm:relative sm:inline-block"
+			class="inline-flex flex-row items-center hover-trigger flex-shrink-0"
 			href="/"
 		>
 			<!-- 自定义头像图片 -->
@@ -16,11 +16,11 @@ import { menuLinks } from "@/site.config";
 				src="/116414193.jpg"
 				alt="我的头像"
 				title="欢迎来到我的博客！"
-				class="me-3 sm:me-4 h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-700 ease-in-out avatar-glow"
+				class="me-2 sm:me-4 h-10 w-10 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-700 ease-in-out avatar-glow flex-shrink-0"
 				style="filter: brightness(1);"
 			/>
 			<!-- 修改：首页标题 -->
-			<span class="logo-text text-xl font-bold sm:text-2xl leading-tight transition-all duration-300">motto的博客</span>
+			<span class="logo-text text-xl font-bold sm:text-2xl leading-tight transition-all duration-300 whitespace-nowrap">motto的博客</span>
 		</a>
 		<nav
 			aria-label="Main menu"
