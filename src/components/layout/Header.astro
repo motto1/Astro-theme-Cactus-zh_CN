@@ -4,11 +4,11 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 import { menuLinks } from "@/site.config";
 ---
 
-<header class="group relative mb-16 flex items-center sm:ps-[4.5rem]" id="main-header">
-	<div class="flex sm:flex-col">
+<header class="relative mb-16 flex items-center sm:ps-[4.5rem]" id="main-header">
+	<div class="flex flex-row items-center sm:flex-col sm:items-start">
 		<a
 			aria-current={Astro.url.pathname === "/" ? "page" : false}
-			class="inline-flex items-center group sm:relative sm:inline-block"
+			class="inline-flex flex-row items-center group hover-trigger sm:relative sm:inline-block"
 			href="/"
 		>
 			<!-- 自定义头像图片 -->
@@ -20,7 +20,7 @@ import { menuLinks } from "@/site.config";
 				style="filter: brightness(1);"
 			/>
 			<!-- 修改：首页标题 -->
-			<span class="logo-text text-xl font-bold sm:text-2xl leading-tight transition-all duration-300 group-hover:text-blue-400">motto的博客</span>
+			<span class="logo-text text-xl font-bold sm:text-2xl leading-tight transition-all duration-300">motto的博客</span>
 		</a>
 		<nav
 			aria-label="Main menu"
@@ -136,7 +136,7 @@ import { menuLinks } from "@/site.config";
 	}
 	
 	/* 悬停时的效果 */
-	group:hover .avatar-glow {
+	.hover-trigger:hover .avatar-glow {
 		box-shadow:
 			0 4px 10px rgba(0,0,0,0.18),
 			0 0 24px 6px rgba(59, 130, 246, 0.35),
@@ -144,12 +144,12 @@ import { menuLinks } from "@/site.config";
 		animation: floatBreath 2.4s ease-in-out infinite;
 	}
 	
-	group:hover .avatar-glow::before {
+	.hover-trigger:hover .avatar-glow::before {
 		opacity: 1;
 		filter: blur(12px);
 	}
 	
-	group:hover .avatar-glow::after {
+	.hover-trigger:hover .avatar-glow::after {
 		opacity: 0.6;
 		filter: blur(10px);
 	}
@@ -189,8 +189,9 @@ import { menuLinks } from "@/site.config";
 	}
 
 	/* 文字悬停动画 */
-	group:hover .logo-text {
+	.hover-trigger:hover .logo-text {
 		animation: floatBreathText 2.2s ease-in-out infinite;
+		color: rgb(59 130 246); /* text-blue-400 */
 	}
 	
 	/* 呼吸与轻微晃动（文字） */
