@@ -7,20 +7,25 @@ import { menuLinks } from "@/site.config";
 
 <style>
 	@keyframes breathe {
-		0% { transform: scale(1) rotate(0deg); }
-		30% { transform: scale(1.08) rotate(-3deg); }
-		60% { transform: scale(1.02) rotate(3deg); }
-		100% { transform: scale(1) rotate(0deg); }
+		0%, 100% { transform: scale(1) rotate(0deg); }
+		25% { transform: scale(1.02) rotate(-1.5deg); }
+		50% { transform: scale(1.04) rotate(0deg); }
+		75% { transform: scale(1.02) rotate(1.5deg); }
 	}
 
+    @keyframes halo-pulse {
+        0% { box-shadow: 0 0 0 0px rgba(96, 165, 250, 0.7), 0 0 0 0px rgba(96, 165, 250, 0.7); }
+        100% { box-shadow: 0 0 0 15px rgba(96, 165, 250, 0), 0 0 0 30px rgba(96, 165, 250, 0); }
+    }
+
 	.group:hover .breathing-image {
-		animation: breathe 2s ease-in-out infinite;
+		animation: breathe 1.5s ease-in-out infinite, halo-pulse 1.5s ease-in-out infinite;
 	}
 
 	@keyframes title-glow {
-        0%{background-position:0% 50%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 50%}
+        0%{ background-position: 0% 50%; transform: scale(1); }
+        50%{ background-position: 100% 50%; transform: scale(1.03); }
+        100%{ background-position: 0% 50%; transform: scale(1); }
 	}
 
 	.group:hover .breathing-title {
@@ -29,12 +34,8 @@ import { menuLinks } from "@/site.config";
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-		animation: title-glow 2.5s ease infinite;
-        transform: scale(1.05);
+		animation: title-glow 1.8s ease-in-out infinite;
 	}
-    .breathing-title {
-        transition: transform 0.3s ease-in-out;
-    }
 </style>
 <header class="group relative mb-16 flex items-center sm:ps-[4.5rem]" id="main-header">
 	<div class="flex sm:flex-col">
@@ -48,7 +49,7 @@ import { menuLinks } from "@/site.config";
 				src="/116414193.jpg"
 				alt="我的头像"
 				title="欢迎来到我的博客！"
-				class="breathing-image me-3 h-10 w-10 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-1000 ease-in-out hover:ring-4 hover:ring-blue-400/50 hover:ring-offset-2 hover:ring-offset-bgColor"
+				class="breathing-image me-3 h-10 w-10 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-1000 ease-in-out"
 			/>
 			<!-- 修改：首页标题 -->
 			<span class="breathing-title text-xl font-bold sm:text-2xl">motto的博客</span>
