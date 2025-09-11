@@ -4,11 +4,11 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 import { menuLinks } from "@/site.config";
 ---
 
-<header class="group relative mb-16 flex items-center" id="main-header">
+<header class="group relative mb-16 flex items-center sm:ps-[4.5rem]" id="main-header">
 	<div class="flex sm:flex-col">
 		<a
 			aria-current={Astro.url.pathname === "/" ? "page" : false}
-			class="inline-flex items-center hover-trigger sm:relative sm:inline-block"
+			class="inline-flex items-center group sm:relative sm:inline-block"
 			href="/"
 		>
 			<!-- 自定义头像图片 -->
@@ -16,19 +16,11 @@ import { menuLinks } from "@/site.config";
 				src="/116414193.jpg"
 				alt="我的头像"
 				title="欢迎来到我的博客！"
-<<<<<<< HEAD
-<<<<<<< HEAD
-				class="me-3 h-10 w-10 sm:me-4 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-700 ease-in-out avatar-glow"
+				class="me-3 h-10 w-10 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-700 ease-in-out transform group-hover:scale-110 group-hover:rotate-12 group-hover:saturate-150 avatar-glow"
 				style="filter: brightness(1);"
-=======
-				class="me-3 h-10 w-10 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-500 ease-in-out transform group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-2xl group-hover:shadow-blue-500/30 group-hover:brightness-110 group-hover:saturate-150 hover:ring-4 hover:ring-blue-400/50 hover:ring-offset-2 hover:ring-offset-bgColor"
->>>>>>> parent of bb986bb (motto1)
-=======
-				class="me-3 h-10 w-10 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-500 ease-in-out transform group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-2xl group-hover:shadow-blue-500/30 group-hover:brightness-110 group-hover:saturate-150 hover:ring-4 hover:ring-blue-400/50 hover:ring-offset-2 hover:ring-offset-bgColor"
->>>>>>> parent of bb986bb (motto1)
 			/>
 			<!-- 修改：首页标题 -->
-			<span class="logo-text text-xl font-bold sm:text-2xl transition-all duration-300">motto的博客</span>
+			<span class="text-xl font-bold sm:text-2xl transition-all duration-300 group-hover:text-blue-400 group-hover:scale-105">motto的博客</span>
 		</a>
 		<nav
 			aria-label="Main menu"
@@ -92,15 +84,14 @@ import { menuLinks } from "@/site.config";
 	</mobile-button>
 </header>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 <style>
 	/* 头像光环渐变效果 */
 	.avatar-glow {
 		position: relative;
-		box-shadow:
-			0 2px 6px rgba(0,0,0,0.15),
-			0 0 14px rgba(59, 130, 246, 0.18);
+		box-shadow: 
+			0 0 0 0 rgba(59, 130, 246, 0),
+			0 0 0 0 rgba(59, 130, 246, 0),
+			0 0 20px rgba(59, 130, 246, 0.1);
 		transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 	
@@ -129,39 +120,38 @@ import { menuLinks } from "@/site.config";
 	.avatar-glow::after {
 		content: '';
 		position: absolute;
-		top: -3px;
-		left: -3px;
-		right: -3px;
-		bottom: -3px;
+		top: -2px;
+		left: -2px;
+		right: -2px;
+		bottom: -2px;
 		border-radius: 50%;
-		background: radial-gradient(circle,
-			rgba(59, 130, 246, 0.55) 0%,
-			rgba(59, 130, 246, 0.32) 45%,
-			rgba(59, 130, 246, 0.12) 75%,
+		background: radial-gradient(circle, 
+			rgba(59, 130, 246, 0.6) 0%, 
+			rgba(59, 130, 246, 0.3) 40%,
+			rgba(59, 130, 246, 0.1) 70%,
 			transparent 100%
 		);
-		opacity: 0.18;
+		opacity: 0;
 		transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 		z-index: -1;
 	}
 	
 	/* 悬停时的效果 */
-	.hover-trigger:hover .avatar-glow {
-		box-shadow:
-			0 4px 10px rgba(0,0,0,0.18),
-			0 0 24px 6px rgba(59, 130, 246, 0.35),
-			0 0 60px 14px rgba(59, 130, 246, 0.18);
-		animation: floatBreath 2.4s ease-in-out infinite;
+	group:hover .avatar-glow {
+		box-shadow: 
+			0 0 20px 4px rgba(59, 130, 246, 0.4),
+			0 0 40px 8px rgba(59, 130, 246, 0.2),
+			0 0 80px 16px rgba(59, 130, 246, 0.1);
+		animation: breathe 2s ease-in-out infinite;
 	}
 	
-	.hover-trigger:hover .avatar-glow::before {
+	group:hover .avatar-glow::before {
 		opacity: 1;
 		filter: blur(12px);
 	}
 	
-	.hover-trigger:hover .avatar-glow::after {
-		opacity: 0.6;
-		filter: blur(10px);
+	group:hover .avatar-glow::after {
+		opacity: 1;
 	}
 	
 	/* 旋转动画 */
@@ -174,51 +164,20 @@ import { menuLinks } from "@/site.config";
 		}
 	}
 	
-	/* 呼吸与轻微晃动（图片） */
-	@keyframes floatBreath {
+	/* 呼吸亮度效果 */
+	@keyframes breathe {
 		0% {
-			transform: translateY(0) scale(1);
-			filter: brightness(1.12) saturate(1.4);
-		}
-		25% {
-			transform: translateY(-0.8px) translateX(0.4px) scale(1.04);
-			filter: brightness(1.25) saturate(1.6);
+			filter: brightness(1.1) saturate(1.5);
 		}
 		50% {
-			transform: translateY(0) scale(1.03);
-			filter: brightness(1.2) saturate(1.55);
-		}
-		75% {
-			transform: translateY(0.6px) translateX(-0.4px) scale(1.02);
-			filter: brightness(1.12) saturate(1.45);
+			filter: brightness(1.25) saturate(1.8);
 		}
 		100% {
-			transform: translateY(0) scale(1);
-			filter: brightness(1.08) saturate(1.35);
+			filter: brightness(1.05) saturate(1.4);
 		}
-	}
-
-	/* 文字悬停动画 */
-	.hover-trigger:hover .logo-text {
-		animation: floatBreathText 2.2s ease-in-out infinite;
-		color: rgb(59 130 246); /* text-blue-400 */
-	}
-	
-	/* 呼吸与轻微晃动（文字） */
-	@keyframes floatBreathText {
-		0% { transform: translateY(0) scale(1); }
-		33% { transform: translateY(-0.4px) translateX(0.3px) scale(1.015); }
-		67% { transform: translateY(0.4px) translateX(-0.2px) scale(1.01); }
-		100% { transform: translateY(0) scale(1); }
 	}
 </style>
 
-=======
->>>>>>> parent of bb986bb (motto1)
-=======
->>>>>>> parent of bb986bb (motto1)
-=======
->>>>>>> parent of bb986bb (motto1)
 <script>
 	import { toggleClass } from "@/utils/domElement";
 
