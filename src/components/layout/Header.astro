@@ -6,39 +6,80 @@ import { menuLinks } from "@/site.config";
 
 
 <style>
+	/* 优化的呼吸动画 - 更自然的缩放和细微旋转 */
 	@keyframes breathe {
-		0%, 100% { transform: scale(1) rotate(0deg); }
-		25% { transform: scale(1.02) rotate(-1.5deg); }
-		50% { transform: scale(1.04) rotate(0deg); }
-		75% { transform: scale(1.02) rotate(1.5deg); }
+		0%, 100% { 
+			transform: scale(1) rotate(0deg); 
+		}
+		33% { 
+			transform: scale(1.03) rotate(-0.8deg); 
+		}
+		66% { 
+			transform: scale(1.01) rotate(0.8deg); 
+		}
 	}
 
-    @keyframes subtle-glow {
-        0%, 100% {
-            box-shadow: 0 0 3px rgba(96, 165, 250, 0.08);
+	/* 现代化多层光环效果 */
+    @keyframes modern-glow {
+        0% {
+            box-shadow: 
+				0 0 5px rgba(96, 165, 250, 0.3),
+				0 0 10px rgba(96, 165, 250, 0.2),
+				0 0 15px rgba(96, 165, 250, 0.1);
+        }
+        25% {
+            box-shadow: 
+				0 0 8px rgba(59, 130, 246, 0.4),
+				0 0 15px rgba(96, 165, 250, 0.3),
+				0 0 25px rgba(147, 197, 253, 0.2);
         }
         50% {
-            box-shadow: 0 0 6px rgba(96, 165, 250, 0.16);
+            box-shadow: 
+				0 0 12px rgba(37, 99, 235, 0.5),
+				0 0 20px rgba(59, 130, 246, 0.4),
+				0 0 35px rgba(96, 165, 250, 0.3);
+        }
+        75% {
+            box-shadow: 
+				0 0 8px rgba(59, 130, 246, 0.4),
+				0 0 15px rgba(96, 165, 250, 0.3),
+				0 0 25px rgba(147, 197, 253, 0.2);
+        }
+        100% {
+            box-shadow: 
+				0 0 5px rgba(96, 165, 250, 0.3),
+				0 0 10px rgba(96, 165, 250, 0.2),
+				0 0 15px rgba(96, 165, 250, 0.1);
         }
     }
 
 	.group:hover .breathing-image {
-		animation: breathe 1.5s ease-in-out infinite, subtle-glow 7s ease-in-out infinite;
+		animation: breathe 2s ease-in-out infinite, modern-glow 3s ease-in-out infinite;
 	}
 
+	/* 优化的标题渐变动画 */
 	@keyframes title-glow {
-        0%{ background-position: 0% 50%; transform: scale(1); }
-        50%{ background-position: 100% 50%; transform: scale(1.03); }
-        100%{ background-position: 0% 50%; transform: scale(1); }
+        0%{ 
+			background-position: 0% 50%; 
+			transform: scale(1); 
+		}
+        50%{ 
+			background-position: 100% 50%; 
+			transform: scale(1.02); 
+		}
+        100%{ 
+			background-position: 0% 50%; 
+			transform: scale(1); 
+		}
 	}
 
 	.group:hover .breathing-title {
-        background: linear-gradient(-45deg, #60a5fa, #3b82f6, #93c5fd, #2563eb);
-        background-size: 400% 400%;
+        background: linear-gradient(-45deg, #60a5fa, #3b82f6, #93c5fd, #2563eb, #60a5fa);
+        background-size: 300% 300%;
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-		animation: title-glow 1.8s ease-in-out infinite;
+		animation: title-glow 2.5s ease-in-out infinite;
 	}
 </style>
 <header class="group relative mb-16 flex items-center sm:ps-[4.5rem]" id="main-header">
