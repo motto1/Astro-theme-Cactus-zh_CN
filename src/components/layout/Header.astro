@@ -16,7 +16,8 @@ import { menuLinks } from "@/site.config";
 				src="/116414193.jpg"
 				alt="我的头像"
 				title="欢迎来到我的博客！"
-				class="me-3 h-10 w-10 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-500 ease-in-out transform group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-2xl group-hover:shadow-blue-500/30 group-hover:brightness-110 group-hover:saturate-150 hover:ring-4 hover:ring-blue-400/50 hover:ring-offset-2 hover:ring-offset-bgColor"
+				class="me-3 h-10 w-10 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-700 ease-in-out transform group-hover:scale-110 group-hover:rotate-12 group-hover:saturate-150 avatar-glow"
+				style="filter: brightness(1);"
 			/>
 			<!-- 修改：首页标题 -->
 			<span class="text-xl font-bold sm:text-2xl transition-all duration-300 group-hover:text-blue-400 group-hover:scale-105">motto的博客</span>
@@ -82,6 +83,100 @@ import { menuLinks } from "@/site.config";
 		</button>
 	</mobile-button>
 </header>
+
+<style>
+	/* 头像光环渐变效果 */
+	.avatar-glow {
+		position: relative;
+		box-shadow: 
+			0 0 0 0 rgba(59, 130, 246, 0),
+			0 0 0 0 rgba(59, 130, 246, 0),
+			0 0 20px rgba(59, 130, 246, 0.1);
+		transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	
+	.avatar-glow::before {
+		content: '';
+		position: absolute;
+		top: -4px;
+		left: -4px;
+		right: -4px;
+		bottom: -4px;
+		border-radius: 50%;
+		background: conic-gradient(from 0deg, 
+			rgba(59, 130, 246, 0.8), 
+			rgba(147, 197, 253, 0.6),
+			rgba(59, 130, 246, 0.4),
+			rgba(29, 78, 216, 0.6),
+			rgba(59, 130, 246, 0.8)
+		);
+		opacity: 0;
+		filter: blur(8px);
+		transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+		z-index: -1;
+		animation: rotate 4s linear infinite;
+	}
+	
+	.avatar-glow::after {
+		content: '';
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		right: -2px;
+		bottom: -2px;
+		border-radius: 50%;
+		background: radial-gradient(circle, 
+			rgba(59, 130, 246, 0.6) 0%, 
+			rgba(59, 130, 246, 0.3) 40%,
+			rgba(59, 130, 246, 0.1) 70%,
+			transparent 100%
+		);
+		opacity: 0;
+		transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+		z-index: -1;
+	}
+	
+	/* 悬停时的效果 */
+	group:hover .avatar-glow {
+		box-shadow: 
+			0 0 20px 4px rgba(59, 130, 246, 0.4),
+			0 0 40px 8px rgba(59, 130, 246, 0.2),
+			0 0 80px 16px rgba(59, 130, 246, 0.1);
+		animation: breathe 2s ease-in-out infinite;
+	}
+	
+	group:hover .avatar-glow::before {
+		opacity: 1;
+		filter: blur(12px);
+	}
+	
+	group:hover .avatar-glow::after {
+		opacity: 1;
+	}
+	
+	/* 旋转动画 */
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+	
+	/* 呼吸亮度效果 */
+	@keyframes breathe {
+		0% {
+			filter: brightness(1.1) saturate(1.5);
+		}
+		50% {
+			filter: brightness(1.25) saturate(1.8);
+		}
+		100% {
+			filter: brightness(1.05) saturate(1.4);
+		}
+	}
+</style>
 
 <script>
 	import { toggleClass } from "@/utils/domElement";
