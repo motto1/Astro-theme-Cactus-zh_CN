@@ -7,7 +7,7 @@ export const prerender = true;
 
 <site-search class="ms-auto" id="search">
 	<button
-		class="flex h-9 w-9 items-center justify-center rounded-md hover:text-accent"
+		class="flex h-10 w-10 items-center justify-center rounded-xl glass-button hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
 		data-open-modal
 		disabled
 	>
@@ -30,12 +30,12 @@ export const prerender = true;
 	</button>
 	<dialog
 		aria-label="search"
-		class="h-full max-h-full w-full max-w-full border border-zinc-400 bg-bgColor shadow backdrop:backdrop-blur sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem] sm:rounded-md"
+		class="h-full max-h-full w-full max-w-full glass-morphism-strong rounded-2xl sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem]"
 	>
 		<div class="dialog-frame flex flex-col gap-4 p-6 pt-12 sm:pt-6">
 			<button
-				class="ms-auto cursor-pointer rounded-md bg-zinc-200 p-2 font-semibold dark:bg-zinc-700"
-				data-close-modal>Close</button
+				class="ms-auto cursor-pointer glass-button rounded-lg px-4 py-2 font-semibold hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+				data-close-modal>关闭</button
 			>
 			{
 				import.meta.env.DEV ? (

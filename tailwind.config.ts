@@ -36,13 +36,27 @@ export default {
 	],
 	theme: {
 		extend: {
-      	colors: {
+		    	colors: {
 				accent: "hsl(var(--theme-accent) / <alpha-value>)",
 				"accent-2": "hsl(var(--theme-accent-2) / <alpha-value>)",
 				bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
 				link: "hsl(var(--theme-link) / <alpha-value>)",
 				quote: "hsl(var(--theme-quote) / <alpha-value>)",
 				textColor: "hsl(var(--theme-text) / <alpha-value>)",
+				// 毛玻璃效果颜色
+				glass: {
+					bg: "var(--glass-bg)",
+					border: "var(--glass-border)",
+					shadow: "var(--glass-shadow)",
+					hover: "var(--glass-hover)",
+				},
+				// 渐变颜色
+				gradient: {
+					1: "var(--gradient-1)",
+					2: "var(--gradient-2)",
+					3: "var(--gradient-3)",
+					subtle: "var(--gradient-subtle)",
+				},
 			},
 			fontFamily: {
 				// Add any custom fonts here
@@ -51,6 +65,46 @@ export default {
 			},
 			transitionProperty: {
 				height: "height",
+			},
+			animation: {
+				"gradient-shift": "gradient-shift 15s ease infinite",
+				"breathe": "breathe 2s ease-in-out infinite",
+				"modern-glow": "modern-glow 3s ease-in-out infinite",
+				"title-glow": "title-glow 2.5s ease-in-out infinite",
+			},
+			keyframes: {
+				"gradient-shift": {
+					"0%": { "background-position": "0% 50%" },
+					"50%": { "background-position": "100% 50%" },
+					"100%": { "background-position": "0% 50%" },
+				},
+				"breathe": {
+					"0%, 100%": { transform: "scale(1) rotate(0deg)" },
+					"33%": { transform: "scale(1.03) rotate(-0.8deg)" },
+					"66%": { transform: "scale(1.01) rotate(0.8deg)" },
+				},
+				"modern-glow": {
+					"0%": {
+						"box-shadow": "0 0 5px rgba(96, 165, 250, 0.3), 0 0 10px rgba(96, 165, 250, 0.2), 0 0 15px rgba(96, 165, 250, 0.1)",
+					},
+					"25%": {
+						"box-shadow": "0 0 8px rgba(59, 130, 246, 0.4), 0 0 15px rgba(96, 165, 250, 0.3), 0 0 25px rgba(147, 197, 253, 0.2)",
+					},
+					"50%": {
+						"box-shadow": "0 0 12px rgba(37, 99, 235, 0.5), 0 0 20px rgba(59, 130, 246, 0.4), 0 0 35px rgba(96, 165, 250, 0.3)",
+					},
+					"75%": {
+						"box-shadow": "0 0 8px rgba(59, 130, 246, 0.4), 0 0 15px rgba(96, 165, 250, 0.3), 0 0 25px rgba(147, 197, 253, 0.2)",
+					},
+					"100%": {
+						"box-shadow": "0 0 5px rgba(96, 165, 250, 0.3), 0 0 10px rgba(96, 165, 250, 0.2), 0 0 15px rgba(96, 165, 250, 0.1)",
+					},
+				},
+				"title-glow": {
+					"0%": { "background-position": "0% 50%", transform: "scale(1)" },
+					"50%": { "background-position": "100% 50%", transform: "scale(1.02)" },
+					"100%": { "background-position": "0% 50%", transform: "scale(1)" },
+				},
 			},
 			// @ts-expect-error
 			// Remove above once tailwindcss exposes theme type

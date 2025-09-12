@@ -26,14 +26,20 @@ const {
 	>
 	<!-- 修改 max-w-6xl 最大宽度-->
 	<body
-		class="mx-auto flex min-h-screen max-w-4xl flex-col bg-bgColor px-4 pt-16 font-mono text-sm font-normal text-textColor antialiased sm:px-8"
+		class="min-h-screen font-mono text-sm font-normal text-textColor antialiased"
 	>
+		<!-- 动态渐变背景 -->
+		<div class="fixed inset-0 z-[-1] animated-gradient opacity-20 dark:opacity-10"></div>
+		
+		<!-- 主内容容器 -->
+		<div class="mx-auto flex min-h-screen max-w-4xl flex-col px-4 pt-16 sm:px-8 glass-morphism rounded-3xl my-8 macos-shadow dark:macos-shadow-dark">
 		<ThemeProvider />
 		<SkipLink />
 		<Header />
-		<main id="main">
+		<main id="main" class="flex-grow">
 			<slot />
 		</main>
 		<Footer />
+		</div>
 	</body>
 </html>

@@ -82,7 +82,7 @@ import { menuLinks } from "@/site.config";
 		animation: title-glow 2.5s ease-in-out infinite;
 	}
 </style>
-<header class="group relative mb-16 flex items-center sm:ps-[4.5rem]" id="main-header">
+<header class="group relative mb-16 flex items-center sm:ps-[4.5rem] glass-morphism-light rounded-2xl p-4 smooth-transition" id="main-header">
 	<div class="flex sm:flex-col">
 		<a
 			aria-current={Astro.url.pathname === "/" ? "page" : false}
@@ -94,21 +94,21 @@ import { menuLinks } from "@/site.config";
 				src="/116414193.jpg"
 				alt="我的头像"
 				title="欢迎来到我的博客！"
-				class="breathing-image me-3 h-10 w-10 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-1000 ease-in-out"
+				class="breathing-image me-3 h-12 w-12 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-16 sm:w-16 rounded-full object-cover transition-all duration-1000 ease-in-out ring-2 ring-white/50 dark:ring-gray-800/50"
 			/>
 			<!-- 修改：首页标题 -->
-			<span class="breathing-title text-xl font-bold sm:text-2xl">motto的博客</span>
+			<span class="breathing-title text-xl font-bold sm:text-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient-x">motto的博客</span>
 		</a>
 		<nav
 			aria-label="Main menu"
-			class="absolute -inset-x-4 top-14 hidden flex-col items-end gap-y-4 rounded-md bg-bgColor/[.85] py-4 text-accent shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:-ms-4 sm:mt-1 sm:flex sm:flex-row sm:items-center sm:divide-x sm:divide-accent sm:rounded-none sm:bg-transparent sm:py-0 sm:shadow-none sm:backdrop-blur-none"
+			class="absolute -inset-x-4 top-14 hidden flex-col items-end gap-y-4 rounded-xl glass-morphism py-4 text-accent group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:-ms-4 sm:mt-1 sm:flex sm:flex-row sm:items-center sm:divide-x sm:divide-accent sm:rounded-none sm:bg-transparent sm:py-0 sm:shadow-none sm:backdrop-blur-none sm:border-none"
 			id="navigation-menu"
 		>
 			{
 				menuLinks.map((link) => (
 					<a
 						aria-current={Astro.url.pathname === link.path ? "page" : false}
-						class="px-4 py-4 underline-offset-2 sm:py-0 sm:hover:underline"
+						class="px-4 py-4 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300 sm:py-0 sm:hover:underline sm:hover:text-blue-600 dark:sm:hover:text-blue-400"
 						data-astro-prefetch
 						href={link.path}
 					>
@@ -125,7 +125,7 @@ import { menuLinks } from "@/site.config";
 			aria-expanded="false"
 			aria-haspopup="menu"
 			aria-label="Open main menu"
-			class="group relative ms-4 h-7 w-7 sm:invisible sm:hidden"
+			class="group relative ms-4 h-10 w-10 rounded-lg glass-button flex items-center justify-center sm:invisible sm:hidden"
 			id="toggle-navigation-menu"
 			type="button"
 		>
