@@ -4,47 +4,25 @@ import { menuLinks, siteConfig } from "@/site.config";
 const year = new Date().getFullYear();
 ---
 
-<!-- 现代化底部设计 -->
-<footer class="mt-auto w-full pt-16 pb-8">
-	<div class="modern-section">
-		<!-- 分隔线 -->
-		<div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent mb-8"></div>
-		
-		<div class="flex flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between">
-			<!-- 版权信息 -->
-			<div class="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
-				<span class="font-medium">&copy; {year}</span>
-				<span class="text-gray-400">·</span>
-				<span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
-					{siteConfig.author}
-				</span>
-				<span class="text-gray-400">·</span>
-				<span class="text-xs">用 ❤️ 制作</span>
-			</div>
-			
-			<!-- 导航链接 -->
-			<nav aria-label="More on this site" class="flex items-center space-x-6">
-				{
-					menuLinks.map((link) => (
-						<a 
-							class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 smooth-transition relative group"
-							href={link.path}
-						>
-							{link.title}
-							<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full smooth-transition"></span>
-						</a>
-					))
-				}
-			</nav>
-		</div>
-		
-		<!-- 底部装饰 -->
-		<div class="mt-8 text-center">
-			<div class="inline-flex items-center space-x-1 text-xs text-gray-400">
-				<span>🌱</span>
-				<span>持续成长，不断创新</span>
-				<span>🌱</span>
-			</div>
-		</div>
+<footer
+	class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pb-4 pt-20 text-center align-top font-semibold text-gray-600 dark:text-gray-400 sm:flex-row sm:justify-between sm:text-xs"
+>
+	<div class="me-0 sm:me-4">
+		&copy; {siteConfig.author}
+		<!-- 修改 -->
+		<!-- {year}.<span class="inline-block">&nbsp;🚀&nbsp;Astro Cactus</span> -->
+		{year}
 	</div>
+	<nav
+		aria-label="More on this site"
+		class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
+	>
+		{
+			menuLinks.map((link) => (
+				<a class="px-4 py-2 sm:py-0 sm:hover:text-textColor sm:hover:underline" href={link.path}>
+					{link.title}
+				</a>
+			))
+		}
+	</nav>
 </footer>
